@@ -2,23 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:new_try/result.dart';
 import './quiz.dart';
 
-// void main() {
-//   runApp(MyApp());
-// }
-
 void main() => runApp(NewHomepage());
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: NewHomepage(),
-//     );
-//   }
-// }
 
 class NewHomepage extends StatefulWidget {
   const NewHomepage({super.key});
@@ -30,8 +14,6 @@ class NewHomepage extends StatefulWidget {
 }
 
 class _NewHomepageState extends State<NewHomepage> {
-  //_NewHomepageState it is private class so it can be used only in  main.dar file.
-
   final _questions = const [
     {
       'questionText': 'Which is the capital city of India ',
@@ -118,7 +100,7 @@ class _NewHomepageState extends State<NewHomepage> {
       _questionindex = _questionindex + 1;
     });
     print(_questionindex);
-    // print(questionindex);
+
     if (_questionindex < _questions.length) {
       print('We have more questions');
     }
@@ -133,10 +115,8 @@ class _NewHomepageState extends State<NewHomepage> {
         ),
         body: _questionindex < _questions.length
             ? Quiz(
-                answerQuestions:
-                    _answerQuestions, // 1. results this error if (_answerQuestions) used like this: The argument type 'dynamic Function(int)' can't be assigned to the parameter type 'void Function() because I used voidcallback in quiz.dart file
-                questionindex: // 2. so use  an empty fn like this ()=>,if we use this fn it results an expection so I used 'Function' in quiz dart file for answerQuestions.
-                    _questionindex, //3. use only pointer like _answerQuestions
+                answerQuestions: _answerQuestions,
+                questionindex: _questionindex,
                 questions: _questions,
               )
             : Result(_totalScore, _restartquiz),

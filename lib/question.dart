@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Questions extends StatelessWidget {
-  final String
-      questionText; // this value will never change after intialization to constructor
+  final String questionText;
 
   Questions(this.questionText);
 
